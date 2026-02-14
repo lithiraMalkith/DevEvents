@@ -43,7 +43,7 @@ const EventDetailsPage = async ({ params }: { params: Promise<{ slug: string}>})
 
     const { event : {description, image, overview, date, time, location, mode, agenda, audience, tags, organizer}} = await request.json();
 
-    if(!description) return notFound;
+    if(!description) return notFound();
 
     const bookings = await getBookingCount(slug);
 
