@@ -3,7 +3,10 @@ import Image from "next/image";
 import BookEvent from "@/components/BookEvent";
 import {IEvent} from "@/database";
 import {getSimilarEventsBySlug} from "@/lib/actions/event.actions";
+import {getBookingCount} from "@/lib/actions/booking.actions";
 import EventCard from "@/components/EventCard";
+
+export const dynamic = 'force-dynamic';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -36,13 +39,13 @@ const EventTags = ({tags}: { tags: string[] } ) => (
 const EventDetailsPage = async ({ params }: { params: Promise<{ slug: string}>}) => {
     const { slug } = await params;
 
-    const request = await fetch(`${BASE_URL}/api/events/${slug}`);
+    const request = await fetch(`${BASE_URL}/api/events/${slug}`, { cache: 'force-cache' });
 
     const { event : {description, image, overview, date, time, location, mode, agenda, audience, tags, organizer}} = await request.json();
 
     if(!description) return notFound;
 
-    const bookings = 0;
+    const bookings = await getBookingCount(slug);
 
     const similarEvents: IEvent[] = await getSimilarEventsBySlug(slug);
 

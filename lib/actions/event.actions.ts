@@ -1,11 +1,12 @@
 'use server'
 
+import { unstable_noStore as noStore } from 'next/cache';
 import connectDB from "@/lib/mongodb";
 import Event from "@/database/event.model";
 
 export const getSimilarEventsBySlug = async (slug: string ) => {
     try {
-
+        noStore();
         await connectDB();
         const event = await Event.findOne({ slug });
 
