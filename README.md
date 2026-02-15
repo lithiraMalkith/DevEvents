@@ -198,15 +198,6 @@ docker run -p 3000:3000 devevents
 
 ## 📊 Stats
 
-<div align="center">
-
-![GitHub stars](https://img.shields.io/github/stars/yourusername/DevEvents?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/DevEvents?style=social)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/DevEvents)
-![GitHub license](https://img.shields.io/github/license/yourusername/DevEvents)
-
-</div>
-
 ---
 
 ## 📄 License
@@ -217,7 +208,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-### 🎉 **Made with ❤️ by the Developer Community**
 
 <div align="center">
 
